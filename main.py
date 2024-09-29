@@ -1,46 +1,24 @@
-from fastapi import FastAPI, Query
-from pydantic import BaseModel
+# o understand the __init__ constructor and the class method initFromBirthYear.
+from datetime import date
 
-# إعداد CORS للسماح بطلبات من متصفح الويب
-from fastapi.middleware.cors import CORSMiddleware
+class Student:
+    def __init__(self, name, age=0):
+        self.name = name
+        self.age = age
+# self refers to the instance of the class.
+# name is a required parameter.
+# age is an optional parameter with a default value of 0.
+    def describe(self):
+        print(f"My name is {self.name} and my age is {self.age}")
+# The __init__ constructor initializes the instance variables name and age.
+# The initFromBirthYear class method provides an alternative way to create a Student instance by calculating the age from the birth year.
+# The describe method prints the student's name and age.
+    @classmethod
+    def initFromBirthYear(cls, name, birthYear):
+        return cls(name, date.today().year - birthYear)
 
-app = FastAPI()
+student1 = Student("Islam", 20)
+student2 = Student.initFromBirthYear("Ahmed", 1993)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # يجب تحديد المجالات المسموح بها في الإنتاج
-    allow_methods=["*"],
-    allow_headers=["*"],
-
-)
-
-class BMIOutput(BaseModel):
-    bmi: float
-    message: str
-    image: str
-
-@app.get("/")
-def Hi():
-    return {"message": "Marhaba python"}
-
-@app.get("/calculate_bmi")
-def calculate_bmi(
-    weight: float = Query(..., gt=20, lt=200, description="الوزن بالكيلوغرام"),
-    height: float = Query(..., gt=1, lt=3, description="الطول بالمتر")
-):
-    bmi = weight / (height ** 2)
-
-    if bmi < 18.5:
-        message = "لديك نقص في الوزن، كُل أكثر"
-        pic = "1"
-    elif 18.5 <= bmi < 25:
-        message = "لديك وزن طبيعي، حافظ عليه"
-        pic = "2"
-    elif 25 <= bmi < 30:
-        message = "لديك زيادة في الوزن، تمرن أكثر"
-        pic = "3"
-    else:
-        message = "أنت تعاني من السمنة، قم بمراجعة طبيب"
-        pic="4"
-
-    return BMIOutput(bmi=bmi, message=message,image=pic)
+student1.describe()
+student2.describe()
