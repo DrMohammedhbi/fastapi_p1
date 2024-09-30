@@ -26,7 +26,7 @@ The latest improvements are showcased in this video:
 
 Running FastAPI on Google Colab: A Step-by-Step Guide:
 
-- [Running FastAPI on Google Colab](https://www.youtube.com/watch?v=WfEp_lj87vM&list=PLHKMhBDQN7pqW1CEnTC8rrycT3xkvRh2H&index=3)
+- [Running FastAPI on Google Colab](https://youtu.be/5yZey8a-b-w)
 
 ## Installation
 
