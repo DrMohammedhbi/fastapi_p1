@@ -24,6 +24,10 @@ The latest improvements are showcased in this video:
 
 - [Latest Code Improvement Video](https://www.youtube.com/watch?v=WfEp_lj87vM&list=PLHKMhBDQN7pqW1CEnTC8rrycT3xkvRh2H&index=2)
 
+Running FastAPI on Google Colab: A Step-by-Step Guide:
+
+- [Running FastAPI on Google Colab](https://www.youtube.com/watch?v=WfEp_lj87vM&list=PLHKMhBDQN7pqW1CEnTC8rrycT3xkvRh2H&index=3)
+
 ## Installation
 
 To run this application, you need to have Python and FastAPI installed. You can install FastAPI using pip:
